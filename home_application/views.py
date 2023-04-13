@@ -35,5 +35,19 @@ def contact(request):
     联系页
     """
     return render(request, "home_application/contact.html")
+
+
 def helloworld(request):
     return render(request, 'home_application/helloworld.html')
+
+
+def python_homework1(request):
+    return render(request, 'home_application/python_homework1.html')
+
+
+def python_homework2(request):
+    return render(request, 'home_application/python_homework2.html')
+
+
+def python_homework3(request):
+    return render(request, 'home_application/python_homework3.html')
