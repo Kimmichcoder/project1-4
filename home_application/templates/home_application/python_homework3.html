@@ -1,35 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>HomeWork3</title>
-</head>
-<body>
-    <pre>
-import math
+from datetime import datetime
+from functools import wraps
 
-pos = [0, 0]
-while True:
-    s = input()
-    if not s:
-        break
-    if s == "STOP":
-        break
-    movement = s.split(" ")
-    direction = movement[0]
-    steps = int(movement[1])
-    if direction == "UP":
-        pos[0] += steps
-    elif direction == "DOWN":
-        pos[0] -= steps
-    elif direction == "LEFT":
-        pos[1] -= steps
-    elif direction == "RIGHT":
-        pos[1] += steps
-    else:
-        pass
 
-print(int(round(math.sqrt(pos[1] ** 2 + pos[0] ** 2))))
-    </pre>
-</body>
-</html>
+def log_it(logfile='out.log'):
+    def logging_decorator(func):
+        @wraps(func)
+        def wrapped_function(*args, **kwargs):
+            log = f"[{datetime.now()}] {func.__name__} was called"
+            # 打开logfile，并写入内容
+            with open(logfile, 'a') as fd:
+                # 现在将日志打到指定的logfile
+                fd.write(log + '\n')
+            return func(*args, **kwargs)
+        return wrapped_function
+    return logging_decorator
+
+
+@log_it()
+def my_func1():
+    pass
+
+
+@log_it(logfile='func2.log')
+def my_func2():
+    pass
+
+
+my_func1()
+my_func2()
