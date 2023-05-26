@@ -38,3 +38,6 @@ def contact(request):
 
 def helloworld(request):
     return render(request, 'home_application/helloworld.html')
+
+def python_homework1(request):
+    return render(request, 'home_application/python_homework1.html')
