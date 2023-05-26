@@ -21,4 +21,5 @@ urlpatterns = (
     url(r'^contact/$', views.contact),
     # 添加 helloworld 路由
     url(r'^helloworld/$', views.helloworld),
+    url(r'^python/homework1/$', views.python_homework1),
 )
