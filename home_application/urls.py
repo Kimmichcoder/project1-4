@@ -22,4 +22,6 @@ urlpatterns = (
     # 添加 helloworld 路由
     url(r'^helloworld/$', views.helloworld),
     url(r'^python/homework1/$', views.python_homework1),
+    url(r'^python/homework2/$', views.python_homework2),
+    url(r'^python/homework3/$', views.python_homework3),
 )
