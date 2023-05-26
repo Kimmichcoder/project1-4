@@ -56,3 +56,6 @@ def python_homework22(request):
 
 def python_homework23(request):
     return render(request, 'home_application/python_homework23.html')
+
+def frontend(request):
+    return render(request, "home_application/frontend.html")
